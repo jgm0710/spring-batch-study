@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  database:
+    image: postgres:14.3
+    container_name: batchstudy
+    restart: unless-stopped
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: batchstudy
+      POSTGRES_PASSWORD: batchstudy
+      POSTGRES_DB: batchstudy
+
+    volumes:
+      - batchstudy:/var/lib/postgresql/data
+
+volumes:
+  batchstudy:
